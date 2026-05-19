@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { products } from "@/constants/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { AddToCartButton } from '@/components/products/add-to-cart-button';
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -59,12 +60,7 @@ export default async function ProductDetailPage({
               Stock: {product.stock}
             </p>
 
-            <Button
-              size="lg"
-              className="mt-8"
-            >
-              Add to cart
-            </Button>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </section>

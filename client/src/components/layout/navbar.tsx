@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useMounted } from '@/hooks/use-mounted';
 import {
   ShoppingCart,
   User,
@@ -19,6 +20,11 @@ export const Navbar = () => {
     (acc, item) => acc + item.quantity,
     0
   );
+
+  const mounted = useMounted();
+    if (!mounted) {
+      return null;
+  }
 
   return (
     <nav className="h-20 border-b border-white/10 backdrop-blur-xl">
