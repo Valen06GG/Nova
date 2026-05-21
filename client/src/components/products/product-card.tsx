@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ShoppingCart } from 'lucide-react';
-
+import { toast } from 'sonner';
 import { Product } from '@/types/product';
-
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { useCartStore } from '@/store/use-cart-store';
@@ -22,14 +21,14 @@ export const ProductCard = ({
   );
 
   return (
-    <Card className="hover:border-white/20 transition-all">
+    <Card className="group overflow-hidden border-white/10 hover:border-white/20 transition-all">
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-square overflow-hidden rounded-xl">
           <Image
             src={product.image}
             alt={product.title}
             fill
-            className="object-cover hover:scale-105 transition-all"
+            className="object-cover duration-300 group-hover:scale-105 transition-transform"
           />
         </div>
       </Link>
@@ -39,18 +38,22 @@ export const ProductCard = ({
           {product.category}
         </p>
 
-        <h3 className="text-xl font-semibold mt-1">
+        <h3 className="text-xl font-semibold mt-2">
           {product.title}
         </h3>
 
         <div className="flex items-center justify-between mt-6">
-          <span className="text-2xl font-bold">
+          <span className="text-3xl font-bold tracking-tight">
             ${product.price}
           </span>
 
           <Button
             size="sm"
-            onClick={() => addItem(product)}
+            onClick={() => {
+              addItem(product);
+
+              toast.success("Product added to cart");
+            }}
           >
             <ShoppingCart size={18} />
           </Button>

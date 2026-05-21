@@ -1,4 +1,5 @@
 import { ProductCard } from "../products/product-card";
+import { Container } from "../ui/container";
 
 const products = [
   {
@@ -76,27 +77,27 @@ const products = [
 
 export const FeaturedProducts = () => {
   return (
-    <section className="px-4 pb-24">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-10">
-          <h2 className="text-4xl font-bold">
-            Featured Products
-          </h2>
-
-          <p className="text-white/50 mt-2">
-            Discover our most popular products.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product) => (
-            <ProductCard
+    <section className="pb-28">
+      <Container>
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold tracking-tight">
+              Featured Products
+            </h2>
+  
+            <p className="text-white/50 mt-3 text-lg">
+              Discover our most popular products.
+            </p>
+          </div>
+  
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {products.map((product) => (
+              <ProductCard
               key={product.id}
               product={product}
-            />
-          ))}
-        </div>
-      </div>
+              />
+            ))}
+          </div>
+      </Container>
     </section>
   );
 };

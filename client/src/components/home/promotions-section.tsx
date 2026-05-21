@@ -1,4 +1,5 @@
 import { Card } from "../ui/card";
+import { Container } from "../ui/container";
 
 const promotions = [
   {
@@ -21,21 +22,26 @@ const promotions = [
 ];
 
 export const PromotionsSection = () => {
-    return (
-        <section className="pb-20 px-4">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {promotions.map((promotion) => (
-          <Card key={promotion.title}>
-                <h3 className="text-2xl font-semibold">
-                    {promotion.title}
-                </h3>
+  return (
+    <section className="pb-28">
+      <Container>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {promotions.map((promotion) => (
+            <Card
+              key={promotion.title}
+              className="hover:border-white/20 transition-all"
+            >
+              <h3 className="text-2xl font-semibold">
+                {promotion.title}
+              </h3>
 
-                <p className="text-white/60 mt-3">
-                    {promotion.description}
-                </p>
-          </Card>
-        ))}
-            </div>
-        </section>
-    );
+              <p className="text-white/60 mt-3 leading-relaxed">
+                {promotion.description}
+              </p>
+            </Card>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
 };
