@@ -1,5 +1,5 @@
-import { Card } from "../ui/card";
-import { Container } from "../ui/container";
+import { Card } from '../ui/card';
+import { Container } from '../ui/container';
 
 const promotions = [
   {
@@ -29,15 +29,34 @@ export const PromotionsSection = () => {
           {promotions.map((promotion) => (
             <Card
               key={promotion.title}
-              className="hover:border-white/20 transition-all"
+              className="
+                relative
+                overflow-hidden
+                border
+                border-white/10
+                bg-white/[0.03]
+                backdrop-blur-xl
+                rounded-3xl
+                p-8
+                transition-all
+                duration-300
+                hover:border-violet-500/40
+                hover:bg-violet-500/5
+                hover:-translate-y-1
+                hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]
+              "
             >
-              <h3 className="text-2xl font-semibold">
-                {promotion.title}
-              </h3>
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent" />
 
-              <p className="text-white/60 mt-3 leading-relaxed">
-                {promotion.description}
-              </p>
+              <div className="relative z-10">
+                <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
+                  {promotion.title}
+                </h3>
+
+                <p className="text-white/60 mt-4 leading-relaxed text-lg">
+                  {promotion.description}
+                </p>
+              </div>
             </Card>
           ))}
         </div>

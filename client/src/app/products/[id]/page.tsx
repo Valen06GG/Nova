@@ -1,9 +1,9 @@
 import { MainLayout } from "@/components/layout/main-layout";
-import { Button } from "@/components/ui/button";
 import { products } from "@/constants/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from '@/components/products/add-to-cart-button';
+
 
 interface ProductDetailPageProps {
   params: Promise<{

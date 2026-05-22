@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ShoppingCart,User, } from 'lucide-react';
+import { User } from 'lucide-react';
 import { useCartStore } from '@/store/use-cart-store';
 import { useMounted } from '@/hooks/use-mounted';
+import { CartDrawer } from '../cart/cart-drawer';
 
 export const Navbar = () => {
   const mounted = useMounted();
@@ -58,10 +59,7 @@ export const Navbar = () => {
             href="/cart"
             className="relative"
           >
-            <ShoppingCart
-              size={24}
-              className="text-white/80 hover:text-white transition-colors"
-            />
+            <CartDrawer/>
 
             {items.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-violet-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-lg shadow-violet-500/40">

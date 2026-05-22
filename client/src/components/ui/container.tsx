@@ -13,7 +13,7 @@ export const Container = ({
     return (
         <div 
         className={cn(
-            "max-w-7x1 max-auto px-4",
+            "max-w-[1500px] max-auto px-4",
             className
         )}>
             {children}

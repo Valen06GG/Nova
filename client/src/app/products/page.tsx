@@ -7,10 +7,14 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { CategoryFilter } from '@/components/products/category-filter';
 import { ProductCard } from '@/components/products/product-card';
 import { SearchBar } from '@/components/products/search-bar';
+import { useSearchParams } from 'next/navigation';
 
 export default function ProductsPage() {
-  const [search, setSearch] = useState('');
+  const searchParams = useSearchParams();
 
+  const [search, setSearch] = useState(
+    searchParams.get('search') || ''
+  );
   const [selectedCategory, setSelectedCategory] =
     useState('All');
 
@@ -38,30 +42,32 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col gap-8 mb-12">
             <div>
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-5xl text-white font-bold">
                 Products
               </h1>
 
-              <p className="text-white/50 mt-3">
+              <p className="text-white mt-3">
                 Discover all available products.
               </p>
             </div>
 
-            <div className="flex flex-col lg:flex-row gap-6 lg:items-center lg:justify-between">
+            <div className="flex flex-col lg:flex-row gap-6 lg:items-center text-2x1 bg-white/10 p-4 rounded-2xl">
               <SearchBar
                 value={search}
                 onChange={setSearch}
               />
-
+            </div> 
+            
+            <div className="flex flex-col lg:flex-row gap-6 lg:items-center text-[#9333ea] lg:justify-between">
               <CategoryFilter
                 selected={selectedCategory}
                 onSelect={setSelectedCategory}
-              />
+                />
             </div>
           </div>
 
           {filteredProducts.length === 0 ? (
-            <div className="border border-white/10 rounded-2xl p-10 text-center text-white/50">
+            <div className="border border-white/10 rounded-2xl p-10 text-center text-white">
               No products found.
             </div>
           ) : (
