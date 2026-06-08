@@ -4,6 +4,7 @@ import { MainLayout } from '@/components/layout/main-layout';
 import { HeroSection } from '@/components/home/hero-section';
 import { PromotionsSection } from '@/components/home/promotions-section';
 import { FeaturedProducts } from '@/components/home/featured-products';
+import { CategoriesSection } from '@/components/home/categories-section';
 
 export default function HomePage() {
   return (
@@ -13,6 +14,8 @@ export default function HomePage() {
       <PromotionsSection />
       
       <FeaturedProducts />
+
+      <CategoriesSection />
     </MainLayout>
   );
 }

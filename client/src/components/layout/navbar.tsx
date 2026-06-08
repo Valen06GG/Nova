@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { User } from 'lucide-react';
 import { useCartStore } from '@/store/use-cart-store';
 import { useMounted } from '@/hooks/use-mounted';
 import { CartDrawer } from '../cart/cart-drawer';
+import { User, Heart } from 'lucide-react';
 
 export const Navbar = () => {
   const mounted = useMounted();
@@ -40,6 +40,14 @@ export const Navbar = () => {
             className="hover:text-white transition-colors"
           >
             Products
+          </Link>
+
+          <Link
+            href="/wishlist"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <Heart size={16} />
+            Wishlist
           </Link>
 
           <Link

@@ -14,7 +14,7 @@ export const CartDrawer = () => {
 
     const total = items.reduce(
         (acc, items) =>
-            acc + items.price * items.quantity,
+            acc + items.quantity,
         0
     );
 
@@ -22,7 +22,7 @@ export const CartDrawer = () => {
     <Sheet>
       <SheetTrigger asChild>
         <button className="relative">
-          <ShoppingCart className="w-6 h-6 text-white" />
+          <ShoppingCart className="w-6 h-6 text-white" size={24} />
 
           {items.length > 0 && (
             <span className="absolute -top-2 -right-2 bg-violet-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">

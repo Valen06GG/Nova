@@ -6,6 +6,7 @@ import { Trash2 } from 'lucide-react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/use-cart-store';
+import Link from 'next/link';
 
 export default function CartPage() {
   const {
@@ -42,15 +43,28 @@ export default function CartPage() {
           </div>
 
           {items.length === 0 ? (
-            <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-14 text-center text-white backdrop-blur-xl">
-              <h2 className="text-3xl font-bold">
-                Your cart is empty
-              </h2>
-
-              <p className="text-white mt-4">
-                Add some products to continue shopping.
-              </p>
-            </div>
+           <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-14 text-center text-white backdrop-blur-xl">
+             <div className="text-7xl mb-6">
+               🛒
+             </div>
+           
+             <h2 className="text-4xl font-bold">
+               Your cart is empty
+             </h2>
+           
+             <p className="text-white/60 mt-4 text-lg">
+               Add some products to continue shopping.
+             </p>
+           
+             <Link href="/products">
+               <Button
+                 size="lg"
+                 className="mt-8 bg-violet-600 hover:bg-violet-500 cursor-pointer transition-colors"
+               >
+                 Browse Products
+               </Button>
+             </Link>
+           </div>
           ) : (
             <>
               <div className="space-y-6">

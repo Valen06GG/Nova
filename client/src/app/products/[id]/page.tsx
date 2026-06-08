@@ -78,19 +78,25 @@ export default async function ProductDetailPage({
             
           </div>
         </div>
-
-        <div className="mt-24">
-          <h2 className="text-3xl font-bold mb-8 text-white">
-            Related Products
-          </h2>
         
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="mt-24">
+          <div className="mb-10">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#a78bfa]">
+              Discover More
+            </p>
+        
+            <h2 className="text-4xl font-bold text-white mt-3">
+              Related Products
+            </h2>
+        
+            <p className="text-white/50 mt-3">
+              Similar products you might like.
+            </p>
+          </div>
+        
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {products
-              .filter(
-                (p) =>
-                  p.category === product.category &&
-                  p.id !== product.id
-              )
+              .filter((p) => p.id !== product.id)
               .slice(0, 4)
               .map((relatedProduct) => (
                 <ProductCard
