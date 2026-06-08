@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
+import Image from 'next/image';
 import { Container } from '../ui/container';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
@@ -24,7 +24,20 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+
+      <div className="absolute inset-0">
+        <Image
+          src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
+
+  <div className="absolute inset-0 bg-black/70" />
+
       <div className="absolute inset-0 bg-gradient-to-b from-violet-600/10 via-transparent to-transparent" />
 
       <Container>
