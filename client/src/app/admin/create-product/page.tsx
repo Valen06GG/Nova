@@ -1,10 +1,11 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AdminLayout } from "../admin-layout";
 
 export default function CreateProductPage() {
     return (
-    <MainLayout>
+    <AdminLayout>
       <section className="px-4 py-20">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
@@ -104,6 +105,6 @@ export default function CreateProductPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </AdminLayout>
   );
 }

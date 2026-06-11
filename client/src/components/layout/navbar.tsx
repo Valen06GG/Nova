@@ -5,6 +5,9 @@ import { useCartStore } from '@/store/use-cart-store';
 import { useMounted } from '@/hooks/use-mounted';
 import { CartDrawer } from '../cart/cart-drawer';
 import { User, Heart } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Sheet, SheetContent, SheetTrigger, } from '../ui/sheet';
+import { Menu } from 'lucide-react';
 
 export const Navbar = () => {
   const mounted = useMounted();
@@ -27,7 +30,7 @@ export const Navbar = () => {
           Nova
         </Link>
 
-        <div className="flex items-center gap-10 text-sm font-medium text-white/70">
+        <div className="hidden md:flex items-center gap-10 text-sm font-medium text-white/70">
           <Link
             href="/"
             className="hover:text-white transition-colors"
@@ -58,23 +61,120 @@ export const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex items-center gap-5">
-          <button className="text-white/70 hover:text-white transition-colors">
-            <User size={22} />
-          </button>
-
+        <div className="hidden md:flex items-center gap-5">
+          <Link href="/login">
+            <Button
+              variant="ghost"
+              className="text-violet-400 hover:text-violet-300 transition-colors"
+            >
+              Login
+            </Button>
+          </Link>
+        
+          <Link href="/register">
+            <Button
+              className="
+                bg-gradient-to-r
+                from-[#7c3aed]
+                to-[#9333ea]
+                hover:opacity-90
+              "
+            >
+              Register
+            </Button>
+          </Link>
+        
           <Link
             href="/cart"
             className="relative"
           >
-            <CartDrawer/>
-
+            <CartDrawer />
+        
             {items.length > 0 && (
               <span className="absolute -top-2 -right-2 bg-violet-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold shadow-lg shadow-violet-500/40">
                 {items.length}
               </span>
             )}
           </Link>
+        </div>
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <button>
+                <Menu
+                  size={28}
+                  className="text-white"
+                />
+              </button>
+            </SheetTrigger>
+        
+            <SheetContent
+              side="right"
+              className="
+                bg-[#050505]
+                border-l
+                border-white/10
+                text-white
+                w-[280px]
+                p-0
+              "
+            >
+              <div className="px-6 pt-20">
+                <div className="flex flex-col gap-6 text-lg font-medium">
+                  <Link
+                    href="/"
+                    className="text-white hover:text-violet-400 transition-colors"
+                  >
+                    Home
+                  </Link>
+                  
+                  <Link
+                    href="/products"
+                    className="text-white hover:text-violet-400 transition-colors"
+                  >
+                    Products
+                  </Link>
+                  
+                  <Link
+                    href="/wishlist"
+                    className="text-white hover:text-violet-400 transition-colors"
+                  >
+                    Wishlist
+                  </Link>
+                  
+                  <Link
+                    href="/cart"
+                    className="text-white hover:text-violet-400 transition-colors"
+                  >
+                    Cart
+                  </Link>
+                  
+                  <Link
+                    href="/profile"
+                    className="text-white hover:text-violet-400 transition-colors"
+                  >
+                    Profile
+                  </Link>
+                </div>
+
+                <div className="border-t border-white/10 pt-6 mt-8 flex flex-col gap-4">
+                  <Link
+                    href="/login"
+                    className="text-white hover:text-violet-400"
+                  >
+                    Login
+                  </Link>
+                
+                  <Link
+                    href="/register"
+                    className="text-violet-400 font-semibold"
+                  >
+                    Register
+                  </Link>
+                </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </nav>
     </header>

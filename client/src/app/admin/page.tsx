@@ -1,9 +1,10 @@
 import { MainLayout } from "@/components/layout/main-layout";
 import Link from "next/link";
+import { AdminLayout } from "./admin-layout";
 
 export default function AdminDashboardPage() {
     return (
-    <MainLayout>
+    <AdminLayout>
       <section className="px-4 py-20">
         <div className="max-w-7xl mx-auto">
           <p className="text-sm uppercase tracking-[0.3em] text-[#a78bfa]">
@@ -90,7 +91,7 @@ export default function AdminDashboardPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </AdminLayout>
   );
 
 }

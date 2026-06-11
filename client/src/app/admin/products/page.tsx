@@ -2,10 +2,11 @@ import Link from "next/link";
 import { MainLayout } from "@/components/layout/main-layout";
 import { products } from "@/constants/products";
 import { Button } from "@/components/ui/button";
+import { AdminLayout } from "../admin-layout";
 
 export default function AdminProductsPage() {
     return (
-    <MainLayout>
+    <AdminLayout>
       <section className="px-4 py-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-10">
@@ -107,6 +108,6 @@ export default function AdminProductsPage() {
           </div>
         </div>
       </section>
-    </MainLayout>
+    </AdminLayout>
   );
 }

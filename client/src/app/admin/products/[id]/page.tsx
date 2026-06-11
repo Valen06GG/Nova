@@ -3,6 +3,7 @@ import { products } from "@/constants/products";
 import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AdminLayout } from "../../admin-layout";
 
 interface ProductEditPageProps {
   params: Promise<{ 
@@ -24,7 +25,7 @@ export default async function ProductEditPage({
     }
 
     return (
-        <MainLayout>
+        <AdminLayout>
           <section className="px-4 py-20">
             <div className="max-w-3xl mx-auto">
               <h1 className="text-5xl font-bold text-white">
@@ -112,12 +113,12 @@ export default async function ProductEditPage({
                       transition-all
                     "
                   >
-                    Create Product
+                    Edit Product
                   </Button>
                 </div>
               </div>
             </div>
           </section>
-        </MainLayout>
+        </AdminLayout>
     )
 }
