@@ -36,6 +36,9 @@ export const AdminSidebar = () => {
     return (
         <aside
           className="
+            hidden
+            md:flex
+            flex-col
             w-64
             min-h-screen
             border-r

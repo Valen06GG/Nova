@@ -39,6 +39,7 @@ export default function AdminUsersPage() {
             </p>
     
             <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] overflow-hidden">
+            <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-white/10">
@@ -113,6 +114,7 @@ export default function AdminUsersPage() {
                   ))}
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </AdminLayout>

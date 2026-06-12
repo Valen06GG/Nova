@@ -9,13 +9,13 @@ export default function AdminProductsPage() {
     <AdminLayout>
       <section className="px-4 py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-10">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
             <div>
               <p className="text-sm uppercase tracking-[0.3em] text-[#a78bfa]">
                 Administration
               </p>
 
-              <h1 className="text-5xl font-bold text-white mt-3">
+              <h1 className="text-3xl md:text-5xl font-bold text-white mt-3">
                 Products
               </h1>
 
@@ -24,15 +24,19 @@ export default function AdminProductsPage() {
               </p>
             </div>
 
-            <Link href="/admin/create-product">
-              <Button>
+            <Link
+              href="/admin/create-product"
+              className="w-full md:w-auto"
+            >
+              <Button className="w-full md:w-auto">
                 + Create Product
               </Button>
             </Link>
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
-            <table className="w-full">
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[800px]">
               <thead>
                 <tr className="border-b border-white/10">
                   <th className="text-left p-6 text-white/50">
@@ -105,6 +109,7 @@ export default function AdminProductsPage() {
                 ))}
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       </section>

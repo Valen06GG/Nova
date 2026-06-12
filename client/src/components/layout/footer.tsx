@@ -1,87 +1,50 @@
-import Link from "next/link"
-import { Container } from "../ui/container"
+import Link from 'next/link';
 
 export const Footer = () => {
-    return (
-    <footer className="border-t border-white/10 mt-24">
-      <Container>
-        <div className="py-16">
-          <div className="grid md:grid-cols-4 gap-10">
-            <div>
-              <h3 className="text-2xl font-bold text-white">
-                Nova
-              </h3>
+  return (
+    <footer className="border-t border-white/10 bg-black/30 backdrop-blur-xl">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-3 gap-10">
+          <div>
+            <h2 className="text-3xl font-black bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              Nova
+            </h2>
 
-              <p className="text-white/50 mt-4">
-                Minimal marketplace built with
-                Next.js and NestJS.
-              </p>
-            </div>
+            <p className="text-white/50 mt-4">
+              Modern marketplace built with
+              Next.js, TypeScript and Tailwind.
+            </p>
+          </div>
 
-            <div>
-              <h4 className="font-semibold text-white">
-                Shop
-              </h4>
+          <div>
+            <h3 className="text-white font-semibold mb-4">
+              Navigation
+            </h3>
 
-              <div className="flex flex-col gap-3 mt-4">
-                <Link
-                  href="/products"
-                  className="text-white/50 hover:text-white"
-                >
-                  Products
-                </Link>
-
-                <Link
-                  href="/cart"
-                  className="text-white/50 hover:text-white"
-                >
-                  Cart
-                </Link>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white">
-                Categories
-              </h4>
-
-              <div className="flex flex-col gap-3 mt-4">
-                <span className="text-white/50">
-                  Tech
-                </span>
-
-                <span className="text-white/50">
-                  Furniture
-                </span>
-
-                <span className="text-white/50">
-                  Decoration
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-white">
-                Company
-              </h4>
-
-              <div className="flex flex-col gap-3 mt-4">
-                <span className="text-white/50">
-                  About
-                </span>
-
-                <span className="text-white/50">
-                  Contact
-                </span>
-              </div>
+            <div className="flex flex-col gap-3 text-white/60">
+              <Link href="/">Home</Link>
+              <Link href="/products">Products</Link>
+              <Link href="/wishlist">Wishlist</Link>
+              <Link href="/cart">Cart</Link>
             </div>
           </div>
 
-          <div className="border-t border-white/10 mt-12 pt-8 text-center text-white/40">
-            © 2026 Nova. All rights reserved.
+          <div>
+            <h3 className="text-white font-semibold mb-4">
+              Company
+            </h3>
+
+            <div className="flex flex-col gap-3 text-white/60">
+              <Link href="/about">About</Link>
+              <Link href="/contact">Contact</Link>
+            </div>
           </div>
         </div>
-      </Container>
+
+        <div className="mt-10 pt-6 border-t border-white/10 text-center text-white/40">
+          © 2026 Nova. All rights reserved.
+        </div>
+      </div>
     </footer>
   );
 };
