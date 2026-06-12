@@ -9,6 +9,7 @@ import { Product } from '@/types/product';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { useCartStore } from '@/store/use-cart-store';
+import { motion } from 'framer-motion';
 
 interface ProductCardProps {
   product: Product;
@@ -22,19 +23,25 @@ export const ProductCard = ({
   );
 
   return (
-    <Card className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b0b12] to-black p-5 transition-all duration-300 hover:border-[#7c3aed]/40 hover:shadow-[0_0_40px_rgba(124,58,237,0.15)] flex flex-col h-full">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4 }}
+    >
+     <Card className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b0b12] to-black p-5 transition-all duration-300 hover:border-[#7c3aed]/40 hover:shadow-[0_0_40px_rgba(124,58,237,0.15)] flex flex-col h-full">
       <Link href={`/products/${product.id}`}>
         <div className="relative aspect-square overflow-hidden rounded-2xl">
           <button
             className="
-              absolute
-              top-3
-              right-3
-              z-10
-              flex
-              items-center
-              justify-center
-              w-10
+            absolute
+            top-3
+            right-3
+            z-10
+            flex
+            items-center
+            justify-center
+            w-10
               h-10
               rounded-full
               bg-black/50
@@ -43,7 +50,7 @@ export const ProductCard = ({
               transition-all
               hover:bg-[#7c3aed]
               hover:scale-110
-            "
+              "
           >
             <Heart size={18} />
           </button>
@@ -88,28 +95,29 @@ export const ProductCard = ({
           <Button
             onClick={() => {
               addItem(product);
-
+              
               toast.success(
                 'Product added to cart'
               );
             }}
             className="
-              h-14
-              w-14
-              rounded-2xl
-              bg-gradient-to-r
-              from-[#7c3aed]
-              to-[#9333ea]
-              hover:scale-105
-              hover:shadow-[0_0_25px_rgba(124,58,237,0.6)]
-              transition-all
-              duration-300
+            h-14
+            w-14
+            rounded-2xl
+            bg-gradient-to-r
+            from-[#7c3aed]
+            to-[#9333ea]
+            hover:scale-105
+            hover:shadow-[0_0_25px_rgba(124,58,237,0.6)]
+            transition-all
+            duration-300
             "
           >
             <ShoppingCart size={20} />
           </Button>
         </div>
       </div>
-    </Card>
+     </Card>
+    </motion.div> 
   );
 };

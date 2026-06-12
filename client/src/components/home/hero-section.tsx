@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Container } from '../ui/container';
 import { Button } from '../ui/button';
 import { Input } from '../ui/input';
+import { motion } from 'framer-motion';
 
 export const HeroSection = () => {
   const router = useRouter();
@@ -41,7 +42,12 @@ export const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-violet-600/10 via-transparent to-transparent" />
 
       <Container>
-        <div className="max-w-3xl relative z-10">
+        <motion.div
+          className="max-w-3xl relative z-10"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight bg-gradient-to-r from-white via-violet-200 to-violet-400 bg-clip-text text-transparent">
             The Minimal Marketplace Experience
           </h1>
@@ -95,7 +101,7 @@ export const HeroSection = () => {
               </Button>
             </Link>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

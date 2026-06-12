@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { AddToCartButton } from '@/components/products/add-to-cart-button';
 import { ProductCard } from "@/components/products/product-card";
 import { Button } from "@/components/ui/button";
-
+import { motion } from 'framer-motion';
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -39,7 +39,11 @@ export default async function ProductDetailPage({
             />
           </div>
 
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <p className="text-violet-400 text-lg">
               {product.category}
             </p>
@@ -76,7 +80,7 @@ export default async function ProductDetailPage({
               <p>✓ 30-Day Returns</p>
             </div>
             
-          </div>
+          </motion.div>
         </div>
         
         <div className="mt-24">

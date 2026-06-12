@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 
 import './globals.css';
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from '@/providers/theme-provider';
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={inter.className}>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
 
         <Toaster 
         position='top-right'

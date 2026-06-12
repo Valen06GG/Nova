@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import { Card } from '../ui/card';
 import { Container } from '../ui/container';
 
@@ -26,17 +29,28 @@ export const PromotionsSection = () => {
     <section className="pb-28">
       <Container>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {promotions.map((promotion) => (
+          {promotions.map((promotion, index) => (
+           <motion.div
+             key={promotion.title}
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{
+               duration: 0.4,
+               delay: index * 0.1,
+             }}
+           >
+
             <Card
               key={promotion.title}
               className="
-                relative
-                overflow-hidden
-                border
-                border-white/10
-                bg-white/[0.03]
-                backdrop-blur-xl
-                rounded-3xl
+              relative
+              overflow-hidden
+              border
+              border-white/10
+              bg-white/[0.03]
+              backdrop-blur-xl
+              rounded-3xl
                 p-8
                 transition-all
                 duration-300
@@ -44,8 +58,8 @@ export const PromotionsSection = () => {
                 hover:bg-violet-500/5
                 hover:-translate-y-1
                 hover:shadow-[0_0_40px_rgba(139,92,246,0.15)]
-              "
-            >
+                "
+                >
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent" />
 
               <div className="relative z-10">
@@ -58,9 +72,10 @@ export const PromotionsSection = () => {
                 </p>
               </div>
             </Card>
+          </motion.div>
           ))}
         </div>
       </Container>
-    </section>
-  );
-};
+      </section>
+    );
+  };

@@ -4,10 +4,11 @@ import Link from 'next/link';
 import { useCartStore } from '@/store/use-cart-store';
 import { useMounted } from '@/hooks/use-mounted';
 import { CartDrawer } from '../cart/cart-drawer';
-import { User, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 import { Button } from '../ui/button';
 import { Sheet, SheetContent, SheetTrigger, } from '../ui/sheet';
 import { Menu } from 'lucide-react';
+import { ThemeToggle } from '../theme-toggle';
 
 export const Navbar = () => {
   const mounted = useMounted();
@@ -62,6 +63,7 @@ export const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-5">
+          <ThemeToggle />
           <Link href="/login">
             <Button
               variant="ghost"
