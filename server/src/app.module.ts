@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
-import { ConfigModule } from '@nestjs/config/dist/config.module';
+import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { ProductsModule } from './products/products.module';
+import { OrdersModule } from './orders/orders.module';
 
 @Module({
   imports: [
@@ -10,6 +14,14 @@ import { ConfigModule } from '@nestjs/config/dist/config.module';
     }),
 
     TypeOrmModule.forRoot(typeOrmConfig),
+
+    AuthModule,
+
+    UsersModule,
+
+    ProductsModule,
+
+    OrdersModule,
   ],
   controllers: [],
   providers: [],

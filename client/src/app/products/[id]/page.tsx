@@ -1,3 +1,5 @@
+'use client';
+
 import { MainLayout } from "@/components/layout/main-layout";
 import { products } from "@/constants/products";
 import Image from "next/image";
@@ -6,6 +8,7 @@ import { AddToCartButton } from '@/components/products/add-to-cart-button';
 import { ProductCard } from "@/components/products/product-card";
 import { Button } from "@/components/ui/button";
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface ProductDetailPageProps {
   params: Promise<{
@@ -47,6 +50,30 @@ export default async function ProductDetailPage({
             <p className="text-violet-400 text-lg">
               {product.category}
             </p>
+
+            <div className="flex items-center gap-2 text-sm text-white/50 mb-6">
+              <Link
+                href="/"
+                className="hover:text-violet-400 transition-colors"
+              >
+                Home
+              </Link>
+            
+              <span>/</span>
+            
+              <Link
+                href="/products"
+                className="hover:text-violet-400 transition-colors"
+              >
+                Products
+              </Link>
+            
+              <span>/</span>
+            
+              <span className="text-violet-400">
+                {product.title}
+              </span>
+            </div>
 
             <h1 className="text-6xl font-bold mt-2 text-white">
               {product.title}
