@@ -36,28 +36,28 @@ export const AdminSidebar = () => {
     return (
         <aside
           className="
-            hidden
-            md:flex
-            flex-col
-            w-64
-            min-h-screen
-            border-r
-            border-white/10
-            bg-black/30
-            backdrop-blur-xl
-            p-6
+          hidden 
+          md:flex 
+          flex-col 
+          w-64 
+          min-h-screen 
+          border-r 
+          border-white/10 
+          bg-black/30
+          backdrop-blur-xl 
+          p-6
           "
         >
           <Link href="/">
             <h2
               className="
-                text-3xl
-                font-black
-                bg-gradient-to-r
-                from-violet-400
-                to-cyan-400
-                bg-clip-text
-                text-transparent
+              text-3xl 
+              font-black 
+              bg-gradient-to-r 
+              from-violet-400 
+              to-cyan-400 
+              bg-clip-text 
+              text-transparent
               "
             >
               Nova Admin

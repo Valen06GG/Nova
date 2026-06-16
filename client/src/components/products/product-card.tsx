@@ -30,31 +30,15 @@ export const ProductCard = ({
       transition={{ duration: 0.4 }}
     >
      <Card className="group overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-[#0b0b12] to-black p-5 transition-all duration-300 hover:border-[#7c3aed]/40 hover:shadow-[0_0_40px_rgba(124,58,237,0.15)] flex flex-col h-full">
-      <Link href={`/products/${product.id}`}>
-        <div className="relative aspect-square overflow-hidden rounded-2xl">
-          <button
-            className="
-            absolute
-            top-3
-            right-3
-            z-10
-            flex
-            items-center
-            justify-center
-            w-10
-              h-10
-              rounded-full
-              bg-black/50
-              backdrop-blur-md
-              text-white
-              transition-all
-              hover:bg-[#7c3aed]
-              hover:scale-110
-              "
-          >
-            <Heart size={18} />
-          </button>
-        
+      
+      <div className="relative aspect-square overflow-hidden rounded-2xl">
+        <button
+          className="absolute top-3 right-3 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/50 backdrop-blur-md text-white transition-all hover:bg-[#7c3aed] hover:scale-110"
+        >
+          <Heart size={18} />
+        </button>
+      
+        <Link href={`/products/${product.id}`}>
           <Image
             src={product.image}
             alt={product.title}
@@ -62,8 +46,8 @@ export const ProductCard = ({
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       <div className="mt-5 flex flex-col flex-1">
         <div className="flex items-center justify-between">
