@@ -1,4 +1,4 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Req, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { RolesGuard } from 'src/auth/guards/roles.guard';
 import { Roles } from 'src/auth/roles.decorators';
@@ -13,7 +13,10 @@ export class UsersController {
     ) {}
 
     @Get()
-    @UseGuards(JwtAuthGuard, RolesGuard,)
+    @UseGuards(
+        JwtAuthGuard, 
+        RolesGuard,
+    )
     @Roles('admin')
     getUsers() {
         return this.userService.findAll();
@@ -35,5 +38,19 @@ export class UsersController {
         return {
             message: 'Welcome admin,'
         }
+    }
+
+    @Get(':id')
+    @UseGuards(
+        JwtAuthGuard,
+        RolesGuard,
+    )
+    @Roles('admin')
+    getUserById(
+        @Param('id') id: string,
+    ) {
+        return this.userService.findOne(
+            Number(id),
+        );
     }
 }
