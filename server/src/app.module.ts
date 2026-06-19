@@ -14,13 +14,9 @@ import { OrdersModule } from './orders/orders.module';
     }),
 
     TypeOrmModule.forRoot(typeOrmConfig),
-
     AuthModule,
-
     UsersModule,
-
     ProductsModule,
-
     OrdersModule,
   ],
   controllers: [],

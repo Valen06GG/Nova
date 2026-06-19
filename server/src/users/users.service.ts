@@ -27,4 +27,24 @@ export class UsersService {
       where: { id },
     });
   }
+
+  async update(
+    id: number,
+    data: Partial<User>,
+  ) {
+    await this.userRepository.update(
+      id,
+      data,
+    );
+    
+    return this.findOne(id);
+  }
+
+  async remove(id: number) {
+    await this.userRepository.delete(id);
+
+    return {
+      message: 'User deleted successfullly',
+    };
+  }
 }
