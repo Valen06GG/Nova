@@ -6,7 +6,7 @@ export const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-10">
           <div>
-            <h2 className="text-3xl font-black bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-3xl font-black tracking-tight bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
               Nova
             </h2>
 

@@ -59,13 +59,14 @@ export class UsersController {
         JwtAuthGuard,
         RolesGuard,
     )
+    @Roles('admin') 
     updateUser(
         @Param('id') id: string,
         @Body() body: any,
     ) {
         return this.userService.update(
-            Number(id),
-            body,
+          Number(id),
+          body,
         )
     }
 
@@ -79,7 +80,7 @@ export class UsersController {
         @Param('id') id: string,
     ) {
         return this.userService.remove(
-            Number(id),
+          Number(id),
         );
     }
 }

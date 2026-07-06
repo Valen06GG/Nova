@@ -18,16 +18,16 @@ export class createProductDto {
     @IsNumber()
     @IsOptional()
     @Min(0)
-    discount?: number;
+    discount!: number;
   
     @IsString()
     category!: string;
   
     @IsArray()
     @IsOptional()
-    images?: string[];
+    images!: string[];
   
     @IsBoolean()
     @IsOptional()
-    featured?: boolean;
+    featured!: boolean;
 }

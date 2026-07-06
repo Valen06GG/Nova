@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
 import { Repository } from 'typeorm';
 import { createProductDto } from './dto/create-product.dto';
-import { NotFoundError } from 'rxjs';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class ProductsService {
@@ -39,7 +39,7 @@ export class ProductsService {
         });
 
         if (!product) {
-            throw new NotFoundError('Product not found');
+            throw new NotFoundException('Product not found');
         }
 
         return product;
