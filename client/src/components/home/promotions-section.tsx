@@ -14,7 +14,7 @@ const promotions = [
   {
     title: 'Free Shipping',
     description:
-      'Free shipping on orders over $100.',
+      'Free shipping on discounted orders over $100.',
   },
 
   {
@@ -63,7 +63,7 @@ export const PromotionsSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 via-transparent to-transparent" />
 
               <div className="relative z-10">
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-white to-violet-300 bg-clip-text text-transparent">
                   {promotion.title}
                 </h3>
 

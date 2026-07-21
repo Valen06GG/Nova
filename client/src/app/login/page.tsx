@@ -35,11 +35,13 @@ export default function LoginPage() {
     
               <div className="space-y-4 mt-8 text-white">
                 <Input placeholder="Email" />
+              </div>
     
+              <div className="space-y-4 mt-8 text-white">
                 <Input
                   type="password"
                   placeholder="Password"
-                />
+                  />
               </div>
     
               <Button
