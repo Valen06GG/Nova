@@ -28,7 +28,7 @@ export class Product {
     @Column()
     category!: string;
 
-    @Column('simple-array',
+    @Column(
         {
             nullable: true,
         }

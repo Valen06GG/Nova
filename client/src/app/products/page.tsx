@@ -1,24 +1,42 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-
-import { products } from '@/constants/products';
+import { useEffect, useMemo, useState } from 'react';
 import { MainLayout } from '@/components/layout/main-layout';
 import { CategoryFilter } from '@/components/products/category-filter';
 import { ProductCard } from '@/components/products/product-card';
 import { SearchBar } from '@/components/products/search-bar';
 import { useSearchParams } from 'next/navigation';
 import { ProductCardSkeleton } from '@/components/skeletons/product-card-skeleton';
+import { Product } from '@/types/product';
+import { api } from '@/services/api';
 
 export default function ProductsPage() {
   const searchParams = useSearchParams();
-  const isLoading = false;
+  const [products, setProducts] = useState<Product[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [search, setSearch] = useState(
     searchParams.get('search') || ''
   );
   const [selectedCategory, setSelectedCategory] =
     useState('All');
+
+    useEffect(() => {
+      const fetchProducts = async () => {
+        try {
+          setIsLoading(true);
+
+          const response = await api.get('/products');
+
+          setProducts(response.data);
+        } catch (error) {
+          console.error(error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      fetchProducts();
+    }, []);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
@@ -36,7 +54,7 @@ export default function ProductsPage() {
         matchesSearch && matchesCategory
       );
     });
-  }, [search, selectedCategory]);
+  }, [products, search, selectedCategory]);
 
   return (
     <MainLayout>

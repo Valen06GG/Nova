@@ -22,6 +22,9 @@ export const ProductCard = ({
     (state) => state.addItem
   );
 
+  console.log(product.image);
+  console.log(typeof product.image);
+
   return (
     <motion.div
       initial={false}
@@ -40,7 +43,7 @@ export const ProductCard = ({
       
         <Link href={`/products/${product.id}`}>
           <Image
-            src={product.image}
+            src={product.image || "/placeholder.png"}
             alt={product.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

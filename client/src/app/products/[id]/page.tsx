@@ -1,10 +1,10 @@
 import { MainLayout } from "@/components/layout/main-layout";
-import { products } from "@/constants/products";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from '@/components/products/add-to-cart-button';
 import { ProductCard } from "@/components/products/product-card";
 import { Button } from "@/components/ui/button";
+import { api } from "@/services/api";
 import Link from 'next/link';
 
 interface ProductDetailPageProps {
@@ -18,11 +18,12 @@ export default async function ProductDetailPage({
 }: ProductDetailPageProps) {
   const { id } = await params;
 
-  const product = products.find(
-    (product) => product.id === id
-  );
+  let product;
 
-  if (!product) {
+  try {
+    const response = await api.get(`/products/${id}`);
+    product = response.data;
+  } catch {
     return notFound();
   }
 
@@ -120,15 +121,9 @@ export default async function ProductDetailPage({
           </div>
         
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products
-              .filter((p) => p.id !== product.id)
-              .slice(0, 4)
-              .map((relatedProduct) => (
-                <ProductCard
-                  key={relatedProduct.id}
-                  product={relatedProduct}
-                />
-              ))}
+            <div className="text-white/50">
+               Related products coming soon...
+            </div>
           </div>
         </div>
       </section>
