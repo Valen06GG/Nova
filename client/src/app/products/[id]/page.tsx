@@ -33,7 +33,7 @@ export default async function ProductDetailPage({
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
             <Image
-              src={product.image}
+              src={product.images}
               alt={product.title}
               fill
               className="object-cover hover:scale-105 transition-transform duration-500"

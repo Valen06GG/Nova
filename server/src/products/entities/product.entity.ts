@@ -33,7 +33,7 @@ export class Product {
             nullable: true,
         }
     )
-    image!: string[];
+    images!: string;
 
     @Column({ default: false })
     featured!: boolean;

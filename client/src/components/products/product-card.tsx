@@ -22,8 +22,8 @@ export const ProductCard = ({
     (state) => state.addItem
   );
 
+  console.log(product);
   console.log(product.image);
-  console.log(typeof product.image);
 
   return (
     <motion.div

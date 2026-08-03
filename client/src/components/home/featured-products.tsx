@@ -1,81 +1,15 @@
 import { ProductCard } from '../products/product-card';
 import { Container } from '../ui/container';
+import { Product } from "@/types/product";
 
-const products = [
-  {
-    id: '1',
+export const FeaturedProducts = async () => {
 
-    title: 'Minimal Chair',
+  const response = await fetch("http://localhost:3001/products", {
+    cache: "no-store",
+  });
 
-    description:
-      'Elegant modern chair for minimalist spaces.',
+  const products: Product[] = await response.json();
 
-    price: 120,
-
-    category: 'Furniture',
-
-    image:
-      'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85',
-
-    stock: 10,
-  },
-
-  {
-    id: '2',
-
-    title: 'Modern Lamp',
-
-    description:
-      'Modern lamp with premium design.',
-
-    price: 80,
-
-    category: 'Decoration',
-
-    image:
-      'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
-
-    stock: 6,
-  },
-
-  {
-    id: '3',
-
-    title: 'Wireless Headphones',
-
-    description:
-      'Premium sound quality and minimal design.',
-
-    price: 220,
-
-    category: 'Tech',
-
-    image:
-      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
-
-    stock: 15,
-  },
-
-  {
-    id: '4',
-
-    title: 'Smart Watch',
-
-    description:
-      'Track your activity with style.',
-
-    price: 340,
-
-    category: 'Tech',
-
-    image:
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30',
-
-    stock: 8,
-  },
-];
-
-export const FeaturedProducts = () => {
   return (
     <section className="pb-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b via-transparent to-transparent" />
