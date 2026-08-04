@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { MainLayout } from "@/components/layout/main-layout";
-import { products } from "@/constants/products";
 
 interface OrderDetailPageProps {
     params: {

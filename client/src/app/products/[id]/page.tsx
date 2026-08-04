@@ -27,16 +27,21 @@ export default async function ProductDetailPage({
     return notFound();
   }
 
+  console.log(product);
+  console.log(product.images);
+  console.log(typeof product.images);
+
   return (
     <MainLayout>
       <section className="px-4 py-20">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10">
           <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02]">
             <Image
-              src={product.images}
+              src={product.images || "/placeholder.png"}
               alt={product.title}
               fill
-              className="object-cover hover:scale-105 transition-transform duration-500"
+              className="object-cover"
+              sizes="(max-width:768px) 100vw, 50vw"
             />
           </div>
 

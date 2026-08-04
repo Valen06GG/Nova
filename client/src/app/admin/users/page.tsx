@@ -1,28 +1,14 @@
+import { api } from "@/services/api";
 import { AdminLayout } from "../admin-layout";
 import { Button } from "@/components/ui/button";
+import { User } from "@/types/user";
 
-const users = [
-  {
-    id: '1',
-    name: 'John Doe',
-    email: 'john@example.com',
-    role: 'Admin',
-  },
-  {
-    id: '2',
-    name: 'Jane Smith',
-    email: 'jane@example.com',
-    role: 'Customer',
-  },
-  {
-    id: '3',
-    name: 'Michael Brown',
-    email: 'michael@example.com',
-    role: 'Customer',
-  },
-];
+export default async function AdminUsersPage() {
 
-export default function AdminUsersPage() {
+  const response = await api.get("/users");
+
+  const users = response.data;
+
     return (
         <AdminLayout>
           <div>
@@ -62,7 +48,7 @@ export default function AdminUsersPage() {
                 </thead>
     
                 <tbody>
-                  {users.map((user) => (
+                  {users.map((user: User) => (
                     <tr
                       key={user.id}
                       className="border-b border-white/5 hover:bg-white/[0.02]"

@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { Trash2 } from 'lucide-react';
-
 import { MainLayout } from '@/components/layout/main-layout';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/store/use-cart-store';

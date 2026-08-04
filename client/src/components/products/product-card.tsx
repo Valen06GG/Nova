@@ -23,7 +23,7 @@ export const ProductCard = ({
   );
 
   console.log(product);
-  console.log(product.image);
+  console.log(product.images);
 
   return (
     <motion.div
@@ -43,7 +43,7 @@ export const ProductCard = ({
       
         <Link href={`/products/${product.id}`}>
           <Image
-            src={product.image || "/placeholder.png"}
+            src={product.images || "/placeholder.png"}
             alt={product.title}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

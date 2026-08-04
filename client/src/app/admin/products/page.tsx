@@ -1,8 +1,13 @@
 import Link from "next/link";
 import { MainLayout } from "@/components/layout/main-layout";
-import { products } from "@/constants/products";
 import { Button } from "@/components/ui/button";
 import { AdminLayout } from "../admin-layout";
+import { api } from "@/services/api";
+import { Product } from "@/types/product";
+
+const response = await api.get("/products");
+
+const products = response.data;
 
 export default function AdminProductsPage() {
     return (
@@ -62,7 +67,7 @@ export default function AdminProductsPage() {
               </thead>
 
               <tbody>
-                {products.map((product) => (
+                {products.map((product: Product) => (
                   <tr
                     key={product.id}
                     className="border-b border-white/5 hover:bg-white/[0.02]"

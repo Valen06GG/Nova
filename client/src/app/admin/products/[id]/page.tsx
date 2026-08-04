@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
-import { products } from "@/constants/products";
-import { MainLayout } from "@/components/layout/main-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { AdminLayout } from "../../admin-layout";
+import { api } from "@/services/api";
 
 interface ProductEditPageProps {
   params: Promise<{ 
@@ -16,11 +15,12 @@ export default async function ProductEditPage({
   }: ProductEditPageProps) {
     const { id } = await params;
 
-    const product = products.find(
-        (product) => product.id === id
-    );
+    let product;
 
-    if (!product) {
+    try {
+        const response = await api.get(`/products/${id}`);
+        product = response.data;
+    } catch {
         return notFound();
     }
 
@@ -43,7 +43,7 @@ export default async function ProductEditPage({
                       Product Title
                     </label>
       
-                    <Input placeholder="Wireless Headphones" />
+                    <Input defaultValue={product.title} />
                   </div>
       
                   <div>
@@ -51,7 +51,7 @@ export default async function ProductEditPage({
                       Category
                     </label>
       
-                    <Input placeholder="Tech" />
+                    <Input defaultValue={product.category} />
                   </div>
       
                   <div>
@@ -59,7 +59,10 @@ export default async function ProductEditPage({
                       Price
                     </label>
       
-                    <Input type="number" placeholder="220" />
+                    <Input
+                      type="number"
+                      defaultValue={product.price}
+                    />
                   </div>
       
                   <div>
@@ -67,7 +70,10 @@ export default async function ProductEditPage({
                       Stock
                     </label>
       
-                    <Input type="number" placeholder="15" />
+                    <Input
+                      type="number"
+                      defaultValue={product.stock}
+                    />
                   </div>
                 </div>
       
@@ -76,7 +82,7 @@ export default async function ProductEditPage({
                     Image URL
                   </label>
       
-                  <Input placeholder="https://..." />
+                  <Input defaultValue={product.images} />
                 </div>
       
                 <div className="mt-6">
@@ -85,7 +91,7 @@ export default async function ProductEditPage({
                   </label>
       
                   <textarea
-                    placeholder="Product description..."
+                    defaultValue={product.description}
                     className="
                       min-h-[160px]
                       w-full
